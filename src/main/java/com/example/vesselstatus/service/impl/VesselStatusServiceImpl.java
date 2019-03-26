@@ -7,9 +7,11 @@ import com.example.vesselstatus.dao.VesselStatusDao;
 import com.example.vesselstatus.entity.VesselStatus;
 import com.example.vesselstatus.service.VesselStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class VesselStatusServiceImpl implements VesselStatusService {
   @Autowired
   VesselStatusDao vesselStatusDaoImpl;
