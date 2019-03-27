@@ -15,11 +15,10 @@ import java.util.List;
 public class VesselStatusServiceImpl implements VesselStatusService {
   @Autowired
   VesselStatusDao vesselStatusDaoImpl;
-  BaseResponse baseResponse = new BaseResponse();
-
 
   @Override
   public BaseResponse removeVesselStatus(String vesselGid) {
+    BaseResponse baseResponse = new BaseResponse();
     VesselStatus vesselStatus = vesselStatusDaoImpl.findByVesselGid(vesselGid);
     if (vesselStatus != null) {
       boolean delResult = vesselStatusDaoImpl.remove(vesselStatus);
@@ -40,6 +39,7 @@ public class VesselStatusServiceImpl implements VesselStatusService {
 
   @Override
   public BaseResponse updateVesselStatus(VesselStatus vessel) {
+    BaseResponse baseResponse = new BaseResponse();
     VesselStatus newVessel = vesselStatusDaoImpl.findByVesselGid(vessel.getVesselGid());
     if (newVessel != null) {
       boolean updateResult = vesselStatusDaoImpl.update(vessel);
@@ -61,6 +61,7 @@ public class VesselStatusServiceImpl implements VesselStatusService {
 
   @Override
   public BaseResponse findVesselStatusByVesselGid(String vesselGid) {
+    BaseResponse baseResponse = new BaseResponse();
     VesselStatus vesselStatus = vesselStatusDaoImpl.findByVesselGid(vesselGid);
     if (vesselStatus != null) {
       baseResponse.setCode(Constant.SUCCESS_CODE);
@@ -76,6 +77,7 @@ public class VesselStatusServiceImpl implements VesselStatusService {
 
   @Override
   public BaseResponse saveVesselStatus(VesselStatus vessel) {
+    BaseResponse baseResponse = new BaseResponse();
     VesselStatus status = vesselStatusDaoImpl.save(vessel);
     if(status !=null){
       baseResponse.setCode(Constant.SUCCESS_CODE);
@@ -90,6 +92,7 @@ public class VesselStatusServiceImpl implements VesselStatusService {
 
   @Override
   public BaseResponse<List<VesselStatus>> getAllVessel() {
+    BaseResponse baseResponse = new BaseResponse();
     List<VesselStatus> vessels = vesselStatusDaoImpl.getAll();
 
     if (vessels.size() == 0) {

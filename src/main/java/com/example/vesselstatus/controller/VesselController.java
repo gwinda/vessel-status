@@ -7,22 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/status")
 public class VesselController {
 
     @Autowired
     private VesselStatusService vesselStatusService;
 
-    @RequestMapping("vessel/status/{vesselGid}")
+    @GetMapping("/{vesselGid}")
     @ResponseBody
     public BaseResponse getVesselStatus(@PathVariable String vesselGid) {
-
         return vesselStatusService.findVesselStatusByVesselGid(vesselGid);
     }
 
-    @PostMapping("vessel")
+    @PostMapping()
     @ResponseBody
-    public BaseResponse getVesselStatus(@RequestBody VesselStatus vesselStatus) {
-
+    public BaseResponse createVesselStatus(@RequestBody VesselStatus vesselStatus) {
         return vesselStatusService.saveVesselStatus(vesselStatus);
     }
 }
