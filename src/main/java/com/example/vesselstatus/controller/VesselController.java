@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/status")
+@RequestMapping("/getVessel")
 public class VesselController {
 
     @Autowired
@@ -16,6 +16,7 @@ public class VesselController {
     @GetMapping("/{vesselGid}")
     @ResponseBody
     public BaseResponse getVesselStatus(@PathVariable String vesselGid) {
+        System.out.println("*********************************************************************************************************************************");
         return vesselStatusService.findVesselStatusByVesselGid(vesselGid);
     }
 
