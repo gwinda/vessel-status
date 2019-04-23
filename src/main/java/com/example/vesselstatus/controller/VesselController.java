@@ -25,4 +25,10 @@ public class VesselController {
     public BaseResponse createVesselStatus(@RequestBody VesselStatus vesselStatus) {
         return vesselStatusService.saveVesselStatus(vesselStatus);
     }
+
+    @GetMapping()
+    @ResponseBody
+    public BaseResponse getAllVesselStatus() {
+        return vesselStatusService.getAllVessel();
+    }
 }

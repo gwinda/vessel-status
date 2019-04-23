@@ -4,7 +4,9 @@ import com.example.vesselstatus.base.BaseResponse;
 import com.example.vesselstatus.base.Constant;
 
 import com.example.vesselstatus.service.VesselStatusService;
+import org.apache.camel.CamelContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

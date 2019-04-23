@@ -43,7 +43,7 @@ public class VesselStatusDaoImpl implements VesselStatusDao {
     Query query = new Query(Criteria.where("vesselGid").is(vesselStatus.getVesselGid()));
 
     Update update = new Update();
-    update.set("status",vesselStatus.getRunningState());
+    update.set("runningState",vesselStatus.getRunningState());
 
     UpdateResult result = mongoTemplate.updateFirst(query,update,VesselStatus.class);
 

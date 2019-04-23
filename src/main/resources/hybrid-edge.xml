@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://camel.apache.org/schema/spring
+	http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <c:camelContext id="camel">
+        <c:propertyPlaceholder id="application" location="classpath:camel.properties"/>
+        <!--<c:errorHandler id="errorHandler" type="DefaultErrorHandler" onExceptionOccurredRef="SolaceErrorHandler"/>-->
+
+        <c:route>
+            <c:from uri="{{solace.hub.msg.in.test}}"/>
+            <!--<c:to uri="log:com.cargosmart.DT_LOG?multiline=true&amp;showHeaders=true&amp;showBody=false"/>-->
+            <c:process ref="SolaceEventProcessor"/>
+        </c:route>
+    </c:camelContext>
+
+</beans>

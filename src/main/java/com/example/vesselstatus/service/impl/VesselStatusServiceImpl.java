@@ -52,7 +52,7 @@ public class VesselStatusServiceImpl implements VesselStatusService {
         baseResponse.setMsg("update failed");
       }
     } else {
-      baseResponse.setCode(Constant.FAIL_CODE);
+      baseResponse.setCode(Constant.FAIL_CODE2);
       baseResponse.setMsg("Not found this vesselStatus , update failed");
     }
 

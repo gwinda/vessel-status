@@ -31,4 +31,12 @@ public class VesselStatus implements Serializable {
     public void setRunningState(String runningState) {
         this.runningState = runningState;
     }
+
+    @Override
+    public String toString() {
+        return "VesselStatus{" +
+                "vesselGid='" + vesselGid + '\'' +
+                ", runningState='" + runningState + '\'' +
+                '}';
+    }
 }
